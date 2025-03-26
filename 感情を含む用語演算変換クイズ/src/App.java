@@ -5,7 +5,97 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 
-public class App {
+public class App implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Implement the method logic here
+        /*JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();*/
+        if(e.getSource()==this.next){
+            do {
+                this.quizIndex = random.nextInt(QUIZ.length);
+            } while ((this.clearcount+this.count)>=3);
+            this.quiz = QUIZ[this.quizIndex];
+            this.hints = HINTS[this.quizIndex];
+        this.attempts = 0;
+        //Contains();
+        Quizput();
+        }
+        else if(e.getSource()==this.end){
+            Mpanel.add(this.lbel, BorderLayout.CENTER);
+            System.exit(0);
+        }
+        else if(e.getSource()==this.answerBtn0){
+            JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();
+    if (ButtonText.equals(this.CorrectAnswer)) {
+        Goodjuage();
+        answerBtn0.setEnabled(true);
+    }else {answerBtn0.setEnabled(false);
+        Badjuage();
+    }
+        }
+        else if(e.getSource()==this.answerBtn1){
+            JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();
+    if (ButtonText.equals(this.CorrectAnswer)) {
+        Goodjuage();
+        answerBtn0.setEnabled(true);
+    }else {answerBtn0.setEnabled(false);
+        Badjuage();
+    }
+        }
+        else if(e.getSource()==this.answerBtn2){
+            JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();
+    if (ButtonText.equals(this.CorrectAnswer)) {
+        Goodjuage();
+        answerBtn0.setEnabled(true);
+    }else {answerBtn0.setEnabled(false);
+        Badjuage();
+    }
+        }
+        else if(e.getSource()==this.answerBtn3){
+            JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();
+    if (ButtonText.equals(this.CorrectAnswer)) {
+        Goodjuage();
+        answerBtn0.setEnabled(true);
+    }else {answerBtn0.setEnabled(false);
+        Badjuage();
+    }
+        }
+        else if(e.getSource()==this.answerBtn4){
+            JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();
+    if (ButtonText.equals(this.CorrectAnswer)) {
+        Goodjuage();
+        answerBtn0.setEnabled(true);
+    }else {answerBtn0.setEnabled(false);
+        Badjuage();
+    }
+        }
+        else if(e.getSource()==this.answerBtn5){
+            JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();
+    if (ButtonText.equals(this.CorrectAnswer)) {
+        Goodjuage();
+        answerBtn0.setEnabled(true);
+    }else {answerBtn0.setEnabled(false);
+        Badjuage();
+    }
+        }
+        else if(e.getSource()==this.answerBtn6){
+            JButton answerbutton = (JButton) e.getSource();
+    String ButtonText = answerbutton.getText();
+    if (ButtonText.equals(this.CorrectAnswer)) {
+        Goodjuage();
+        answerBtn0.setEnabled(true);
+    }else {answerBtn0.setEnabled(false);
+        Badjuage();
+    }
+        }
+    }
 
     //private static final Map<String, String> EMOTIONS_MAP = new LinkedHashMap<>();
     private static final Map<Integer, String> NUMBERS_MAP = new LinkedHashMap<>();
@@ -165,902 +255,669 @@ public class App {
         }
     }
 
-    public static int getQuizIndex() {
-        return quizIndex;
-    }
+     int attempts = 0;
+         Random random = new Random();
+        //static Set<Integer> usedIndexes = new HashSet<>();
+         int quizIndex = this.random.nextInt(EMOTIONS.length);
+         int count = 0;
+         int clearcount=0;
+                String CorrectAnswer = EMOTIONS[this.quizIndex];
+                String[] hints = HINTS[this.quizIndex];
+                 String quiz = QUIZ[this.quizIndex];
+                String english=ENGLISH[this.quizIndex];
+                 String Choice0;
+                 String Choice1;
+                 String Choice2;
+                 String Choice3;
+                 String Choice4;
+                 String Choice5;
+                 String Choice6;
+            //private JLabel label = new JLabel();
+                JPanel Mpanel = new JPanel();
+                Button next = new Button("次へ");
+                Button end = new Button("終了");
+                Button answerBtn0 = new Button(this.Choice0);
+                Button answerBtn1 = new Button(this.Choice1);
+                Button answerBtn2 = new Button(this.Choice2);
+                Button answerBtn3 = new Button(this.Choice3);
+                Button answerBtn4 = new Button(this.Choice4);
+                Button answerBtn5 = new Button(this.Choice5);
+                Button answerBtn6 = new Button(this.Choice6);
+                JFrame frame = new JFrame("感情を含む用語演算変換クイズ");
+                JLabel label=new JLabel("クイズ:" + this.quiz);
+                int stack=this.clearcount+this.count;
+                JLabel lbel=new JLabel(this.stack+"問正解です！ クイズを終了します");
+                JLabel laBel=new JLabel("正解"+EMOTIONS[this.quizIndex+this.attempts]);
+                JLabel labl=new JLabel("全てのクイズに正解しました!");
+                JLabel lael=new JLabel("不正解! ヒント: "+this.hints[this.attempts] );
+                JLabel lab = new JLabel("挑戦回数消失! 英語解:" + this.english);
+                JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                ImageIcon icon1=new ImageIcon("./マル.png");
+                ImageIcon icon3=new ImageIcon("./シフォン.png");
+                JLabel label1=new JLabel();
 
-    public static void setQuizIndex(int quizIndex) {
-        App.quizIndex = quizIndex;
-    }
+                public void init(){
+                    next.addActionListener((ActionListener) this);
+                    end.addActionListener((ActionListener) this);
+                    answerBtn0.addActionListener((ActionListener) this);
+                    answerBtn1.addActionListener((ActionListener) this);
+                    answerBtn2.addActionListener((ActionListener) this);
+                    answerBtn3.addActionListener((ActionListener) this);
+                    answerBtn4.addActionListener((ActionListener) this);
+                    answerBtn5.addActionListener((ActionListener) this);
+                    answerBtn6.addActionListener((ActionListener)this);
+                    frame.setSize(1000, 250);
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                
+                    frame.setVisible(true);
+                    frame.setLayout(new FlowLayout());
+                    frame.add(this.Mpanel);
 
-    public static String getQuiz() {
-        return quiz;
-    }
-
-    public static void setQuiz(String quiz) {
-        App.quiz = quiz;
-    }
-    int attempts = 0;
-    static Random random = new Random();
-    static Set<Integer> usedIndexes = new HashSet<>();
-    static int quizIndex = random.nextInt(EMOTIONS.length);
-    int count = 0;
-    String CorrectAnswer = EMOTIONS[quizIndex];
-    String[] hints = HINTS[quizIndex];
-    static String quiz = QUIZ[quizIndex];
-    String english=ENGLISH[quizIndex];
-    static String Choice0;
-    static String Choice1;
-    static String Choice2;
-    static String Choice3;
-    static String Choice4;
-    static String Choice5;
-    static String Choice6;
-
-    /*static {
-        quizIndex = random.nextInt(EMOTIONS.length);
-        Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-        Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-        Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-        Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-        Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
-    }*/
-    static JPanel Mpanel = new JPanel();
-    public static void Quizput(){
-        JLabel label = new JLabel("クイズ:" + quiz);
-        Mpanel.add(label);
-        System.out.println("クイズ:" + quiz);
-}
-    public static void main(String[] args) throws IOException {
-        //try (Scanner scanner = new Scanner(System.in)) {
-        //int attempts = 0;
-       // Random random = new Random();
-        //Set<Integer> usedIndexes = new HashSet<>();
-        // int quizIndex = random.nextInt(EMOTIONS.length);
-        //usedIndexes.add(quizIndex);
-        //int count=0;
-        //String CorrectAnswer = EMOTIONS[quizIndex];
-        //String[] hints = HINTS[quizIndex];
-        //String quiz = QUIZ[quizIndex];
-        JFrame frame = new JFrame("感情を含む用語演算変換クイズ");
-        frame.setSize(1000, 250);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.setLayout(new FlowLayout());
-        //JPanel Mpanel = new JPanel();
-        JLabel label = new JLabel();
-        /*Button next = new Button("次へ");
-        Button end = new Button("終了");*/
-        Quizput();
-        //Mpanel.add(new JLabel("クイズ:" + quiz));
-        /*String Choice0=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String Choice1=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String Choice2=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String Choice3=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String Choice4=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String Choice5=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String Choice6=NUMBERS_MAP.get(Numbers[quizIndex]);*/
- /*if(Choice0!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice0=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(Choice1!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice1=NUMBERS_MAP.get(Numbers[quizIndex+1]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(Choice2!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice2=NUMBERS_MAP.get(Numbers[quizIndex+2]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(Choice3!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice3=NUMBERS_MAP.get(Numbers[quizIndex+3]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(Choice4!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice4=NUMBERS_MAP.get(Numbers[quizIndex+4]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(Choice5!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice5=NUMBERS_MAP.get(Numbers[quizIndex+5]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(Choice6!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice6=NUMBERS_MAP.get(Numbers[quizIndex+6]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                else{Choice6=NUMBERS_MAP.get(Numbers[quizIndex-6]);}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                else{Choice5=NUMBERS_MAP.get(Numbers[quizIndex-5]);}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                else{Choice4=NUMBERS_MAP.get(Numbers[quizIndex-4]);}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                else{ Choice3=NUMBERS_MAP.get(Numbers[quizIndex-3]);}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                else{Choice2=NUMBERS_MAP.get(Numbers[quizIndex-2]);}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                else{Choice1=NUMBERS_MAP.get(Numbers[quizIndex-1]);}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }else{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice0=NUMBERS_MAP.get(Numbers[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }*/
- /*for(int i=0;i<7;i++){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String Choice = NUMBERS_MAP.get(Numbers[quizIndex+i]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(Choice!=null){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice = NUMBERS_MAP.get(Numbers[quizIndex+i]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }else{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Choice = NUMBERS_MAP.get(Numbers[quizIndex-i]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(i<6){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.print(Choice+",");}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                else{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println(Choice+":選択肢");}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                panel.add(new JLabel(Choice));*/
- /*Button answerBtn0 = new Button(Choice0);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                answerBtn0.setBounds(10,10,50,30);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Mpanel.add(answerBtn0);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Button answerBtn1 = new Button(Choice1);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Mpanel.add(answerBtn1,BorderLayout.CENTER);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Button answerBtn2 = new Button(Choice2);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Mpanel.add(answerBtn2,BorderLayout.CENTER);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Button answerBtn3 = new Button(Choice3);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Mpanel.add(answerBtn3,BorderLayout.CENTER);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Button answerBtn4 = new Button(Choice4);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Mpanel.add(answerBtn4,BorderLayout.CENTER);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Button answerBtn5 = new Button(Choice5);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Mpanel.add(answerBtn5,BorderLayout.CENTER);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Button answerBtn6 = new Button(Choice6);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Mpanel.add(answerBtn6,BorderLayout.CENTER);*/
-        /*Mpanel.add(next);
-        Mpanel.add(end);*/
-        //JButton[] answerbuttons = {answerBtn0,answerBtn1,answerBtn2,answerBtn3,answerBtn4,answerBtn5,answerBtn6};
-        //for (JButton button : answerbuttons) {
-        //button.addActionListener(new Activity());
-        //}
-       // System.out.println("クイズ:" + quiz);
-        Mpanel.add(label, BorderLayout.CENTER);
-        frame.add(Mpanel);
-        Container contentPane = frame.getContentPane();
-        contentPane.add(Mpanel, BorderLayout.CENTER);
-        frame.setVisible(true);
-        Contains();
-        /*JTextField textField=new JTextField("回答",10);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                textField.setFont(new Font("Arial", Font.PLAIN, 20));
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                panel.add(textField);*/
- /*JTextArea textArea = new JTextArea(10, 30);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                textArea.setFont(new Font("Arial", Font.PLAIN, 20));
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                panel.add(textArea);*/
- /*answerBtn0.setEnabled(true);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        answerBtn1.setEnabled(true);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        answerBtn2.setEnabled(true);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        answerBtn3.setEnabled(true);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        answerBtn4.setEnabled(true);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        answerBtn5.setEnabled(true);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        answerBtn6.setEnabled(true);*/
-
- /*while (attempts < 7) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("回答を入力してください:");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    String answer = scanner.nextLine();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    /*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    String str=br.readLine();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if(str.equals(CorrectAnswer)){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("正解: " + EMOTIONS[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        if(usedIndexes.size() >=3){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            System.out.println("全てのクイズに正解しました!");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            break;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        do{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            quizIndex = random.nextInt(QUIZ.length);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }while(usedIndexes.contains(quizIndex));
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        usedIndexes.add(quizIndex);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        hints = HINTS[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        quiz=QUIZ[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("次のクイズ:"+quiz);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        attempts = 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }*/
-        //public void actionPerformed(ActionEvent e) {
-        /*String str=textArea.getText();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Button answerbutton = (Button) e.getSource();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        String ButtonText = answerbutton.getText();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        if (str.equals(CorrectAnswer)) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            System.out.println("正解: " + EMOTIONS[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(usedIndexes.size() >=3){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println("全てのクイズに正解しました!");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                break;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            do{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                quizIndex = random.nextInt(QUIZ.length);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }while(usedIndexes.contains(quizIndex));
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            usedIndexes.add(quizIndex);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            hints = HINTS[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            quiz=QUIZ[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            System.out.println("次のクイズ:"+quiz);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            attempts = 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }*/
- /*for (JButton button : answerbuttons) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    button.addActionListener(new ActionListener() {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @Override
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        public void actionPerformed(ActionEvent e) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            JButton answerbutton = (JButton) e.getSource();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String ButtonText = answerbutton.getText();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if (ButtonText.equals(CorrectAnswer)) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("正解: " + EMOTIONS[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if(usedIndexes.size() >=3){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("全てのクイズに正解しました!");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                    Mpanel.add(this.answerBtn0);
+                    Mpanel.add(this.answerBtn1);
+                    Mpanel.add(this.answerBtn2);
+                    Mpanel.add(this.answerBtn3);
+                    Mpanel.add(this.answerBtn4);
+                    Mpanel.add(this.answerBtn5);
+                    Mpanel.add(this.answerBtn6);
+                    Mpanel.add(this.next);
+                    Mpanel.add(this.end);
+                    label1.setIcon(this.icon1);
+                    JLabel label3=new JLabel(this.icon3);
+                    Mpanel.add(this.label1);
+                    Mpanel.add(label3);
+                    /*SoundTurtle bgm=new SoundTurtle("世界に楽しいを届けて(カスタマイズ).mp3");
+                bgm.loadOnMemory();
+                bgm.loop();
+                bgm.stop();*/
+                    Container contentPane = frame.getContentPane();
+                    contentPane.add(this.Mpanel, BorderLayout.CENTER);
+                    frame.setVisible(true);
+                    //Contains();
+                }
+                /*public void actionPerfomed(ActionEvent e){
+                    if(e.getSource()==this.next){
+                        do {
+                            this.quizIndex = random.nextInt(QUIZ.length);
+                        } while ((this.clearcount+this.count)>=3);
+                        this.quiz = QUIZ[this.quizIndex];
+                        this.hints = HINTS[this.quizIndex];
+                    this.attempts = 0;
+                    Contains();
+                    }
+                    else if(e.getSource()==this.end){
+                        panel.add(this.lbel, BorderLayout.CENTER);
+                        System.exit(0);
+                    }
+                    else if(e.getSource()==this.answerBtn0){
+                        JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    Goodjuage();
+                    answerBtn0.setEnabled(true);
+                }else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                }
+                    }
+                    else if(e.getSource()==this.answerBtn1){
+                        JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    Goodjuage();
+                    answerBtn0.setEnabled(true);
+                }else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                }
+                    }
+                    else if(e.getSource()==this.answerBtn2){
+                        JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    Goodjuage();
+                    answerBtn0.setEnabled(true);
+                }else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                }
+                    }
+                    else if(e.getSource()==this.answerBtn3){
+                        JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    Goodjuage();
+                    answerBtn0.setEnabled(true);
+                }else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                }
+                    }
+                    else if(e.getSource()==this.answerBtn4){
+                        JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    Goodjuage();
+                    answerBtn0.setEnabled(true);
+                }else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                }
+                    }
+                    else if(e.getSource()==this.answerBtn5){
+                        JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    Goodjuage();
+                    answerBtn0.setEnabled(true);
+                }else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                }
+                    }
+                    else if(e.getSource()==this.answerBtn6){
+                        JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    Goodjuage();
+                    answerBtn0.setEnabled(true);
+                }else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                }
+                    }
+                    }*/
+                public  void Quizput(){
+                    //this.label=new JLabel("クイズ:" + this.quiz);
+                    //panel.add(label);
+                    Mpanel.add(this.label, BorderLayout.CENTER);
+                    System.out.println("クイズ:" + this.quiz);
+                    Contains();
+                    //init();
+            }
+                public static void main(String[] args) throws IOException {
+                    //try (Scanner scanner = new Scanner(System.in)) {
+                    //int attempts = 0;
+                   // Random random = new Random();
+                    //Set<Integer> usedIndexes = new HashSet<>();
+                    // int quizIndex = random.nextInt(EMOTIONS.length);
+                    //usedIndexes.add(quizIndex);
+                    //int count=0;
+                    //String CorrectAnswer = EMOTIONS[quizIndex];
+                    //String[] hints = HINTS[quizIndex];
+                    //String quiz = QUIZ[quizIndex];
+                    /*JFrame frame = new JFrame("感情を含む用語演算変換クイズ");
+                    frame.setSize(1000, 250);
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setVisible(true);
+                    frame.setLayout(new FlowLayout());
+                    JPanel Mpanel = new JPanel();
+                    JLabel label = new JLabel();
+                    Button next = new Button("次へ");
+                    Button end = new Button("終了");*/
+                    App a=new App();
+                    a.Quizput();
+                    //a.init();
+                    /*frame.add(panel);
+                    Mpanel.add(new JLabel("クイズ:" + quiz));
+                    /*String Choice0=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String Choice1=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String Choice2=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String Choice3=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String Choice4=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String Choice5=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String Choice6=NUMBERS_MAP.get(Numbers[quizIndex]);*/
+             /*if(Choice0!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice0=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(Choice1!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice1=NUMBERS_MAP.get(Numbers[quizIndex+1]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(Choice2!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice2=NUMBERS_MAP.get(Numbers[quizIndex+2]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(Choice3!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice3=NUMBERS_MAP.get(Numbers[quizIndex+3]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(Choice4!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice4=NUMBERS_MAP.get(Numbers[quizIndex+4]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(Choice5!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice5=NUMBERS_MAP.get(Numbers[quizIndex+5]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(Choice6!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice6=NUMBERS_MAP.get(Numbers[quizIndex+6]);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }*/
- /*if(answer.equals(CorrectAnswer)){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("正解: " + EMOTIONS[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if(usedIndexes.size() >=3){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("全てのクイズに正解しました!");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        break;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    do{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        quizIndex = random.nextInt(QUIZ.length);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }while(usedIndexes.contains(quizIndex));
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    usedIndexes.add(quizIndex);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    hints = HINTS[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    quiz=QUIZ[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("次のクイズ:"+quiz);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    attempts = 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if (attempts == 7) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if(count>=3){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("全てのクイズに不正解しました!");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        break;}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    do{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        quizIndex = random.nextInt(QUIZ.length);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }while(usedIndexes.contains(quizIndex));
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    count++;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    hints = HINTS[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    quiz=QUIZ[quizIndex];
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("次のクイズ:"+quiz);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    attempts = 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } else {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if(attempts<6){
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("不正解! ヒント: " + hints[attempts]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }else{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("不正解! 英語解:"+ENGLISH[quizIndex]);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    attempts++;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }*/
-        System.out.println("クイズを終了します");
-        End();
-        //}
-    }
-public static void next(){
-    Button next = new Button("次へ");
-    Mpanel.add(next);
-    next.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            do {
-                quizIndex = random.nextInt(QUIZ.length);
-            } while (usedIndexes.contains(quizIndex));
-            quiz = QUIZ[quizIndex];
-            System.out.println("次のクイズ:" + quiz);
-            Contains();
-        }
-    });
-}
-public static void End(){
-    Button end = new Button("終了");
-    Mpanel.add(end);
-    end.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.exit(0);
-        }
-    });
-}
-    public static void Contains() {
-            usedIndexes.add(quizIndex);
-            if (Choice0 != null) {
-                Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-                if (Choice1 != null) {
-                    Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-                    if (Choice2 != null) {
-                        Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-                        if (Choice3 != null) {
-                            Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-                            if (Choice4 != null) {
-                                Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-                                if (Choice5 != null) {
-                                    Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-                                    if (Choice6 != null) {
-                                        Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            else{Choice6=NUMBERS_MAP.get(Numbers[quizIndex-6]);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            else{Choice5=NUMBERS_MAP.get(Numbers[quizIndex-5]);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            else{Choice4=NUMBERS_MAP.get(Numbers[quizIndex-4]);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            else{ Choice3=NUMBERS_MAP.get(Numbers[quizIndex-3]);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            else{Choice2=NUMBERS_MAP.get(Numbers[quizIndex-2]);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            else{Choice1=NUMBERS_MAP.get(Numbers[quizIndex-1]);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }else{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice0=NUMBERS_MAP.get(Numbers[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }*/
+             /*for(int i=0;i<7;i++){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            String Choice = NUMBERS_MAP.get(Numbers[quizIndex+i]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(Choice!=null){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice = NUMBERS_MAP.get(Numbers[quizIndex+i]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }else{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Choice = NUMBERS_MAP.get(Numbers[quizIndex-i]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if(i<6){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            System.out.print(Choice+",");}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            else{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            System.out.println(Choice+":選択肢");}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            panel.add(new JLabel(Choice));*/
+             /*Button answerBtn0 = new Button(Choice0);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            answerBtn0.setBounds(10,10,50,30);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Mpanel.add(answerBtn0);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Button answerBtn1 = new Button(Choice1);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Mpanel.add(answerBtn1,BorderLayout.CENTER);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Button answerBtn2 = new Button(Choice2);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Mpanel.add(answerBtn2,BorderLayout.CENTER);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Button answerBtn3 = new Button(Choice3);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Mpanel.add(answerBtn3,BorderLayout.CENTER);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Button answerBtn4 = new Button(Choice4);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Mpanel.add(answerBtn4,BorderLayout.CENTER);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Button answerBtn5 = new Button(Choice5);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Mpanel.add(answerBtn5,BorderLayout.CENTER);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Button answerBtn6 = new Button(Choice6);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Mpanel.add(answerBtn6,BorderLayout.CENTER);*/
+                    /*Mpanel.add(next);
+                    Mpanel.add(end);
+                    JButton[] answerbuttons = {answerBtn0,answerBtn1,answerBtn2,answerBtn3,answerBtn4,answerBtn5,answerBtn6};
+                    //for (JButton button : answerbuttons) {
+                    //button.addActionListener(new Activity());
+                    //}
+                   // System.out.println("クイズ:" + quiz);
+                    panel.add(label, BorderLayout.CENTER);
+                    frame.add(panel);
+                    Container contentPane = frame.getContentPane();
+                    contentPane.add(panel, BorderLayout.CENTER);
+                    frame.setVisible(true);
+                    Contains();
+                    next();*/
+                    /*JTextField textField=new JTextField("回答",10);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            textField.setFont(new Font("Arial", Font.PLAIN, 20));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            panel.add(textField);*/
+             /*JTextArea textArea = new JTextArea(10, 30);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            textArea.setFont(new Font("Arial", Font.PLAIN, 20));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            panel.add(textArea);*/
+             /*answerBtn0.setEnabled(true);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    answerBtn1.setEnabled(true);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    answerBtn2.setEnabled(true);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    answerBtn3.setEnabled(true);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    answerBtn4.setEnabled(true);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    answerBtn5.setEnabled(true);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    answerBtn6.setEnabled(true);*/
+            
+             /*while (attempts < 7) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println("回答を入力してください:");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String answer = scanner.nextLine();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                /*BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                String str=br.readLine();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(str.equals(CorrectAnswer)){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("正解: " + EMOTIONS[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if(usedIndexes.size() >=3){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("全てのクイズに正解しました!");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        break;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    do{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        quizIndex = random.nextInt(QUIZ.length);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }while(usedIndexes.contains(quizIndex));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    usedIndexes.add(quizIndex);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    hints = HINTS[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    quiz=QUIZ[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("次のクイズ:"+quiz);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    attempts = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }*/
+                    //public void actionPerformed(ActionEvent e) {
+                    /*String str=textArea.getText();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Button answerbutton = (Button) e.getSource();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    String ButtonText = answerbutton.getText();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if (str.equals(CorrectAnswer)) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("正解: " + EMOTIONS[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        if(usedIndexes.size() >=3){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            System.out.println("全てのクイズに正解しました!");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            break;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        do{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            quizIndex = random.nextInt(QUIZ.length);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }while(usedIndexes.contains(quizIndex));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        usedIndexes.add(quizIndex);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        hints = HINTS[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        quiz=QUIZ[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        System.out.println("次のクイズ:"+quiz);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        attempts = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }*/
+             /*for (JButton button : answerbuttons) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                button.addActionListener(new ActionListener() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @Override
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    public void actionPerformed(ActionEvent e) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        JButton answerbutton = (JButton) e.getSource();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        String ButtonText = answerbutton.getText();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        if (ButtonText.equals(CorrectAnswer)) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println("正解: " + EMOTIONS[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(usedIndexes.size() >=3){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("全てのクイズに正解しました!");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }*/
+             /*if(answer.equals(CorrectAnswer)){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println("正解: " + EMOTIONS[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(usedIndexes.size() >=3){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("全てのクイズに正解しました!");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    break;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                do{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    quizIndex = random.nextInt(QUIZ.length);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }while(usedIndexes.contains(quizIndex));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                usedIndexes.add(quizIndex);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                hints = HINTS[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                quiz=QUIZ[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println("次のクイズ:"+quiz);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                attempts = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            if (attempts == 7) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(count>=3){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("全てのクイズに不正解しました!");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    break;}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                do{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    quizIndex = random.nextInt(QUIZ.length);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }while(usedIndexes.contains(quizIndex));
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                count++;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                hints = HINTS[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                quiz=QUIZ[quizIndex];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                System.out.println("次のクイズ:"+quiz);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                attempts = 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                if(attempts<6){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("不正解! ヒント: " + hints[attempts]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }else{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    System.out.println("不正解! 英語解:"+ENGLISH[quizIndex]);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                attempts++;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }*/
+                    System.out.println("クイズを終了します");
+                    //End();
+                    //}
+                }
+            /*public  void next(){
+                Button next = new Button("次へ");
+                panel.add(next,BorderLayout.SOUTH);
+                next.addActionListener((ActionEvent e) -> {
+                    do {
+                        this.quizIndex = random.nextInt(QUIZ.length);
+                    } while ((this.clearcount+this.count)>=3);
+                    this.quiz = QUIZ[this.quizIndex];
+                    this.hints = HINTS[this.quizIndex];
+                this.attempts = 0;
+                    //System.out.println("次のクイズ:" + this.quiz);
+                    Contains();
+                });
+            }*/
+            /*public  void End(){
+                Button end = new Button("終了");
+                panel.add(end,BorderLayout.SOUTH);
+                //int stack=this.clearcount+this.count;
+                end.addActionListener((ActionEvent e) -> {
+         this.label=new JLabel(stack+"問正解です！ クイズを終了します");
+        panel.add(label);
+        System.exit(0);
+                });
+}*/
+    public void Contains() {
+            //usedIndexes.add(this.quizIndex);
+            if (this.quizIndex <=EMOTIONS.length) {
+                this.Choice0 = NUMBERS_MAP.get(Numbers[this.quizIndex]);
+                if (this.quizIndex+1<=EMOTIONS.length) {
+                    this.Choice1 = NUMBERS_MAP.get(Numbers[this.quizIndex + 1]);
+                    if (this.quizIndex+2 <=EMOTIONS.length) {
+                        this.Choice2 = NUMBERS_MAP.get(Numbers[this.quizIndex + 2]);
+                        if (this.quizIndex+3 <=EMOTIONS.length) {
+                            this.Choice3 = NUMBERS_MAP.get(Numbers[this.quizIndex + 3]);
+                            if (this.quizIndex+4<=EMOTIONS.length) {
+                                this.Choice4 = NUMBERS_MAP.get(Numbers[this.quizIndex + 4]);
+                                if (this.quizIndex+5 <=EMOTIONS.length) {
+                                    this.Choice5 = NUMBERS_MAP.get(Numbers[this.quizIndex + 5]);
+                                    if (this.quizIndex+6 <=EMOTIONS.length) {
+                                        this.Choice6 = NUMBERS_MAP.get(Numbers[this.quizIndex + 6]);
                                     } else {
-                                        Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
+                                        this.Choice6 = NUMBERS_MAP.get(Numbers[this.quizIndex - 6]);
                                     }
                                 } else {
-                                    Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
+                                    this.Choice5 = NUMBERS_MAP.get(Numbers[this.quizIndex - 5]);
                                 }
                             } else {
-                                Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
+                                this.Choice4 = NUMBERS_MAP.get(Numbers[this.quizIndex - 4]);
                             }
                         } else {
-                            Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+                            this.Choice3 = NUMBERS_MAP.get(Numbers[this.quizIndex - 3]);
                         }
                     } else {
-                        Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
+                        this.Choice2 = NUMBERS_MAP.get(Numbers[this.quizIndex - 2]);
                     }
                 } else {
-                    Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+                    this.Choice1 = NUMBERS_MAP.get(Numbers[this.quizIndex - 1]);
                 }
             } else {
-                Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+                this.Choice0 = NUMBERS_MAP.get(Numbers[this.quizIndex]);
             }
-            App appInstance = new App();
-            appInstance.Answer0();
-            appInstance.Answer1();
-            appInstance.Answer2();
-            appInstance.Answer3();
-            appInstance.Answer4();
-            appInstance.Answer5();
-            appInstance.Answer6();
+            init();
+            Answer0();
+            Answer1();
+            Answer2();
+            Answer3();
+            Answer4();
+            Answer5();
+            Answer6();
     }
-
-    public void Answer0() {
-        /*Contains();
-        usedIndexes.add(quizIndex);
-        if (Choice0 != null) {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-            if (Choice1 != null) {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-                if (Choice2 != null) {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-                    if (Choice3 != null) {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-                        if (Choice4 != null) {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-                            if (Choice5 != null) {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-                                if (Choice6 != null) {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
-                                } else {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
-                                }
-                            } else {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
-                            }
-                        } else {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
-                        }
-                    } else {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+public void Goodjuage(){
+    System.out.println("正解: " + EMOTIONS[this.quizIndex+this.attempts]);
+    //JLabel laBel=new JLabel("正解"+EMOTIONS[this.quizIndex+this.attempts]);
+                    Mpanel.add(this.laBel,BorderLayout.CENTER);
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                         //this.label=new JLabel("全てのクイズに正解しました!");
+                        //panel.add(label);
+                        Mpanel.add(this.labl, BorderLayout.CENTER);
+                        //End();
                     }
-                } else {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
-                }
-            } else {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
-            }
-        } else {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        }*/
+                    this.clearcount++;
+                    //next();
+}
+public void Badjuage(){
+    if (this.attempts < 6) {
+        System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+        //this.label=new JLabel("不正解! ヒント: "+this.hints[this.attempts] );
+        //panel.add(label,this.attempts);
+        Mpanel.add(this.lael, BorderLayout.CENTER);
+    } else {
+        System.out.println("挑戦回数消失! 英語解:" + ENGLISH[this.quizIndex]);
+         //this.label = new JLabel("挑戦回数消失! 英語解:" + this.english);
+        //panel.add(label, this.attempts);
+        Mpanel.add(this.lab, BorderLayout.CENTER);
+        if (this.count >= 3) {
+            System.out.println("全てのクイズに不正解しました!");
+            //JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+            //panel.add(lAbel);
+            Mpanel.add(this.lAbel, BorderLayout.CENTER);
+            //End();
+        }
+        this.count++;
+        //next();
+    }
+    this.attempts++;
+}
+    /*public App(){
         Button answerBtn0 = new Button(Choice0);
         Mpanel.add(answerBtn0);
         answerBtn0.setEnabled(true);
-        //while (attempts < 7) {
-            answerBtn0.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JButton answerbutton = (JButton) e.getSource();
-                    String ButtonText = answerbutton.getText();
-                    if (ButtonText.equals(CorrectAnswer)) {
-                        System.out.println("正解: " + EMOTIONS[quizIndex]);
-                        Mpanel.add("正解: ", answerbutton);
-                        answerBtn0.setEnabled(true);
-                        if (usedIndexes.size() >= 3) {
-                            System.out.println("全てのクイズに正解しました!");
-                        }
-                        /*do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        usedIndexes.add(quizIndex);*/
-                        hints = HINTS[quizIndex];
-                        /*quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);*/
-                        attempts = 0;
-                    }
-                    /*if (attempts == 7) {
-                        System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
-                        answerBtn0.setEnabled(false);
-                        if (count >= 3) {
-                            System.out.println("全てのクイズに不正解しました!");
-                        }
-                        do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        count++;
-                        hints = HINTS[quizIndex];
-                        quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);
-                        attempts = 0;
-                    } */
-                   else {answerBtn0.setEnabled(false);
-                        if (attempts < 6) {
-                            System.out.println("不正解! ヒント: " + hints[attempts]);
-                            JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
-                           Mpanel.add(label,attempts);
-                        } else {
-                            System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
-                            JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
-                            Mpanel.add(label, attempts);
-                            if (count >= 3) {
-                                System.out.println("全てのクイズに不正解しました!");
-                            }
-                            /*do {
-                                quizIndex = random.nextInt(QUIZ.length);
-                            } while (usedIndexes.contains(quizIndex));*/
-                            count++;
-                            hints = HINTS[quizIndex];
-                            /*quiz = QUIZ[quizIndex];
-                            System.out.println("次のクイズ:" + quiz);*/
-                            attempts = 0;
-                        }
-                        attempts++;
-                    }
+        answerBtn0.addActionListener((ActionEvent e) -> {
+            JButton answerbutton = (JButton) e.getSource();
+            String ButtonText = answerbutton.getText();
+            if (ButtonText.equals(CorrectAnswer)) {
+                System.out.println("正解: " + EMOTIONS[quizIndex]);
+                Mpanel.add("正解: ", answerbutton);
+                answerBtn0.setEnabled(true);
+                if (usedIndexes.size() >= 3) {
+                    System.out.println("全てのクイズに正解しました!");
                 }
-            });
-        //}
-    }
-
-    public void Answer1() {
-        /*Contains();
-        usedIndexes.add(quizIndex);
-        if (Choice0 != null) {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-            if (Choice1 != null) {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-                if (Choice2 != null) {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-                    if (Choice3 != null) {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-                        if (Choice4 != null) {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-                            if (Choice5 != null) {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-                                if (Choice6 != null) {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
-                                } else {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
-                                }
-                            } else {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
-                            }
-                        } else {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
-                        }
-                    } else {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
-                    }
-                } else {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
-                }
-            } else {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+                hints = HINTS[quizIndex];
+                attempts = 0;
             }
-        } else {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        }*/
-        Button answerBtn1 = new Button(Choice0);
+            else {answerBtn0.setEnabled(false);
+            if (attempts < 6) {
+                System.out.println("不正解! ヒント: " + hints[attempts]);
+                JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
+                Mpanel.add(label,attempts);
+            } else {
+                System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
+                JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
+                Mpanel.add(label, attempts);
+                if (count >= 3) {
+                    System.out.println("全てのクイズに不正解しました!");
+                }count++;
+                hints = HINTS[quizIndex];
+                attempts = 0;
+            }
+            attempts++;
+            }
+        });
+            Button answerBtn1 = new Button(Choice1);
         Mpanel.add(answerBtn1);
         answerBtn1.setEnabled(true);
-        //while (attempts < 7) {
-            answerBtn1.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JButton answerbutton = (JButton) e.getSource();
-                    String ButtonText = answerbutton.getText();
-                    if (ButtonText.equals(CorrectAnswer)) {
-                        System.out.println("正解: " + EMOTIONS[quizIndex]);
-                        Mpanel.add("正解: ", answerbutton);
-                        answerBtn1.setEnabled(true);
-                        if (usedIndexes.size() >= 3) {
-                            System.out.println("全てのクイズに正解しました!");
-                        }
-                        /*do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        usedIndexes.add(quizIndex);*/
-                        hints = HINTS[quizIndex];
-                        /*quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);*/
-                        attempts = 0;
-                    }
-                    /*if (attempts == 7) {
-                        System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
-                        if (count >= 3) {
-                            System.out.println("全てのクイズに不正解しました!");
-                        }
-                        do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        count++;
-                        hints = HINTS[quizIndex];
-                        quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);
-                        attempts = 0;
-                    } */
-                   else {answerBtn1.setEnabled(false);
-                        if (attempts < 6) {
-                            System.out.println("不正解! ヒント: " + hints[attempts]);
-                            JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
-                           Mpanel.add(label,attempts);
-                        } else {
-                            System.out.println("不正解! 英語解:" + ENGLISH[quizIndex]);
-                            JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
-                            Mpanel.add(label, attempts);
-                            if (count >= 3) {
-                                System.out.println("全てのクイズに不正解しました!");
-                            }
-                            /*do {
-                                quizIndex = random.nextInt(QUIZ.length);
-                            } while (usedIndexes.contains(quizIndex));*/
-                            count++;
-                            hints = HINTS[quizIndex];
-                            /*quiz = QUIZ[quizIndex];
-                            System.out.println("次のクイズ:" + quiz);*/
-                            attempts = 0;
-                        }
-                        attempts++;
-                    }
+        answerBtn1.addActionListener((ActionEvent e) -> {
+            JButton answerbutton = (JButton) e.getSource();
+            String ButtonText = answerbutton.getText();
+            if (ButtonText.equals(CorrectAnswer)) {
+                System.out.println("正解: " + EMOTIONS[quizIndex]);
+                Mpanel.add("正解: ", answerbutton);
+                answerBtn1.setEnabled(true);
+                if (usedIndexes.size() >= 3) {
+                    System.out.println("全てのクイズに正解しました!");
                 }
-            });
-        //}
-    }
-
-    public void Answer2() {
-        /*Contains();
-        usedIndexes.add(quizIndex);
-        if (Choice0 != null) {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-            if (Choice1 != null) {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-                if (Choice2 != null) {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-                    if (Choice3 != null) {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-                        if (Choice4 != null) {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-                            if (Choice5 != null) {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-                                if (Choice6 != null) {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
-                                } else {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
-                                }
-                            } else {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
-                            }
-                        } else {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
-                        }
-                    } else {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
-                    }
-                } else {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
-                }
-            } else {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+                hints = HINTS[quizIndex];
+                attempts = 0;
             }
-        } else {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        }*/
-        Button answerBtn2 = new Button(Choice0);
+            else {answerBtn1.setEnabled(false);
+            if (attempts < 6) {
+                System.out.println("不正解! ヒント: " + hints[attempts]);
+                JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
+                Mpanel.add(label,attempts);
+            } else {
+                System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
+                JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
+                Mpanel.add(label, attempts);
+                if (count >= 3) {
+                    System.out.println("全てのクイズに不正解しました!");
+                }count++;
+                hints = HINTS[quizIndex];
+                attempts = 0;
+            }
+            attempts++;
+            }
+        });
+            Button answerBtn2 = new Button(Choice2);
         Mpanel.add(answerBtn2);
         answerBtn2.setEnabled(true);
-        //while (attempts < 7) {
-            answerBtn2.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JButton answerbutton = (JButton) e.getSource();
-                    String ButtonText = answerbutton.getText();
-                    if (ButtonText.equals(CorrectAnswer)) {
-                        System.out.println("正解: " + EMOTIONS[quizIndex]);
-                        Mpanel.add("正解: ", answerbutton);
-                        answerBtn2.setEnabled(true);
-                        if (usedIndexes.size() >= 3) {
-                            System.out.println("全てのクイズに正解しました!");
-                        }
-                        /*do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        usedIndexes.add(quizIndex);*/
-                        hints = HINTS[quizIndex];
-                        /*quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);*/
-                        attempts = 0;
-                    }
-                    /*if (attempts == 7) {
-                        System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
-                        if (count >= 3) {
-                            System.out.println("全てのクイズに不正解しました!");
-                        }
-                        do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        count++;
-                        hints = HINTS[quizIndex];
-                        quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);
-                        attempts = 0;
-                    }*/ 
-                    else {answerBtn2.setEnabled(false);
-                        if (attempts < 6) {
-                            System.out.println("不正解! ヒント: " + hints[attempts]);
-                            JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
-                            Mpanel.add(label,attempts);
-                        } else {
-                            System.out.println("不正解! 英語解:" + ENGLISH[quizIndex]);
-                            JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
-                            Mpanel.add(label, attempts);
-                            if (count >= 3) {
-                                System.out.println("全てのクイズに不正解しました!");
-                            }
-                            /*do {
-                                quizIndex = random.nextInt(QUIZ.length);
-                            } while (usedIndexes.contains(quizIndex));
-                            count++;*/
-                            hints = HINTS[quizIndex];
-                            /*quiz = QUIZ[quizIndex];
-                            System.out.println("次のクイズ:" + quiz);*/
-                            attempts = 0;
-                        }
-                        attempts++;
-                    }
+        answerBtn2.addActionListener((ActionEvent e) -> {
+            JButton answerbutton = (JButton) e.getSource();
+            String ButtonText = answerbutton.getText();
+            if (ButtonText.equals(CorrectAnswer)) {
+                System.out.println("正解: " + EMOTIONS[quizIndex]);
+                Mpanel.add("正解: ", answerbutton);
+                answerBtn2.setEnabled(true);
+                if (usedIndexes.size() >= 3) {
+                    System.out.println("全てのクイズに正解しました!");
                 }
-            });
-        //}
-    }
-
-    public void Answer3() {
-        /*Contains();
-        usedIndexes.add(quizIndex);
-        if (Choice0 != null) {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-            if (Choice1 != null) {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-                if (Choice2 != null) {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-                    if (Choice3 != null) {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-                        if (Choice4 != null) {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-                            if (Choice5 != null) {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-                                if (Choice6 != null) {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
-                                } else {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
-                                }
-                            } else {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
-                            }
-                        } else {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
-                        }
-                    } else {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
-                    }
-                } else {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
-                }
-            } else {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+                hints = HINTS[quizIndex];
+                attempts = 0;
             }
-        } else {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        }*/
-        Button answerBtn3 = new Button(Choice0);
+            else {answerBtn2.setEnabled(false);
+            if (attempts < 6) {
+                System.out.println("不正解! ヒント: " + hints[attempts]);
+                JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
+                Mpanel.add(label,attempts);
+            } else {
+                System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
+                JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
+                Mpanel.add(label, attempts);
+                if (count >= 3) {
+                    System.out.println("全てのクイズに不正解しました!");
+                }count++;
+                hints = HINTS[quizIndex];
+                attempts = 0;
+            }
+            attempts++;
+            }
+        });
+            Button answerBtn3 = new Button(Choice3);
         Mpanel.add(answerBtn3);
         answerBtn3.setEnabled(true);
-        //while (attempts < 7) {
-            answerBtn3.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JButton answerbutton = (JButton) e.getSource();
-                    String ButtonText = answerbutton.getText();
-                    if (ButtonText.equals(CorrectAnswer)) {
-                        System.out.println("正解: " + EMOTIONS[quizIndex]);
-                        Mpanel.add("正解: ", answerbutton);
-                        answerBtn3.setEnabled(true);
-                        if (usedIndexes.size() >= 3) {
-                            System.out.println("全てのクイズに正解しました!");
-                        }
-                        /*do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        usedIndexes.add(quizIndex);*/
-                        hints = HINTS[quizIndex];
-                        /*quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);*/
-                        attempts = 0;
-                    }
-                    /*if (attempts == 7) {
-                        System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
-                        if (count >= 3) {
-                            System.out.println("全てのクイズに不正解しました!");
-                        }
-                        do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        count++;
-                        hints = HINTS[quizIndex];
-                        quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);
-                        attempts = 0;
-                    } */
-                   else {answerBtn3.setEnabled(false);
-                        if (attempts < 6) {
-                            System.out.println("不正解! ヒント: " + hints[attempts]);
-                            JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
-                            Mpanel.add(label,attempts);
-                        } else {
-                            System.out.println("不正解! 英語解:" + ENGLISH[quizIndex]);
-                            JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
-                            Mpanel.add(label, attempts);
-                            if (count >= 3) {
-                                System.out.println("全てのクイズに不正解しました!");
-                            }
-                            /*do {
-                                quizIndex = random.nextInt(QUIZ.length);
-                            } while (usedIndexes.contains(quizIndex));*/
-                            count++;
-                            hints = HINTS[quizIndex];
-                            /*quiz = QUIZ[quizIndex];
-                            System.out.println("次のクイズ:" + quiz);*/
-                            attempts = 0;
-                        }
-                        attempts++;
-                    }
+        answerBtn3.addActionListener((ActionEvent e) -> {
+            JButton answerbutton = (JButton) e.getSource();
+            String ButtonText = answerbutton.getText();
+            if (ButtonText.equals(CorrectAnswer)) {
+                System.out.println("正解: " + EMOTIONS[quizIndex]);
+                Mpanel.add("正解: ", answerbutton);
+                answerBtn3.setEnabled(true);
+                if (usedIndexes.size() >= 3) {
+                    System.out.println("全てのクイズに正解しました!");
                 }
-            });
-        //}
-    }
-
-    public void Answer4() {
-        /*Contains();
-        usedIndexes.add(quizIndex);
-        if (Choice0 != null) {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-            if (Choice1 != null) {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-                if (Choice2 != null) {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-                    if (Choice3 != null) {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-                        if (Choice4 != null) {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-                            if (Choice5 != null) {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-                                if (Choice6 != null) {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
-                                } else {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
-                                }
-                            } else {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
-                            }
-                        } else {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
-                        }
-                    } else {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
-                    }
-                } else {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
-                }
-            } else {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+                hints = HINTS[quizIndex];
+                attempts = 0;
             }
-        } else {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        }*/
-        Button answerBtn4 = new Button(Choice0);
-        Mpanel.add(answerBtn4);
-        answerBtn4.setEnabled(true);
-        //while (attempts < 7) {
-            answerBtn4.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JButton answerbutton = (JButton) e.getSource();
-                    String ButtonText = answerbutton.getText();
-                    if (ButtonText.equals(CorrectAnswer)) {
-                        System.out.println("正解: " + EMOTIONS[quizIndex]);
-                        Mpanel.add("正解: ", answerbutton);
-                        answerBtn4.setEnabled(true);
-                        if (usedIndexes.size() >= 3) {
-                            System.out.println("全てのクイズに正解しました!");
-                        }
-                        /*do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));*/
-                        usedIndexes.add(quizIndex);
-                        hints = HINTS[quizIndex];
-                        /*quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);*/
-                        attempts = 0;
-                    }
-                    /*if (attempts == 7) {
-                        System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
-                        if (count >= 3) {
-                            System.out.println("全てのクイズに不正解しました!");
-                        }
-                        do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        count++;
-                        hints = HINTS[quizIndex];
-                        quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);
-                        attempts = 0;
-                    }*/ 
-                    else {answerBtn4.setEnabled(false);
-                        if (attempts < 6) {
-                            System.out.println("不正解! ヒント: " + hints[attempts]);
-                            JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
-                            Mpanel.add(label,attempts);
-                        } else {
-                            System.out.println("不正解! 英語解:" + ENGLISH[quizIndex]);
-                            JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
-                            Mpanel.add(label, attempts);
-                            if (count >= 3) {
-                                System.out.println("全てのクイズに不正解しました!");
-                            }
-                            /*do {
-                                quizIndex = random.nextInt(QUIZ.length);
-                            } while (usedIndexes.contains(quizIndex));*/
-                            count++;
-                            hints = HINTS[quizIndex];
-                            /*quiz = QUIZ[quizIndex];
-                            System.out.println("次のクイズ:" + quiz);*/
-                            attempts = 0;
-                        }
-                        attempts++;
-                    }
-                }
-            });
-        //}
-    }
-
-    public void Answer5() {
-        /*Contains();
-        usedIndexes.add(quizIndex);
-        if (Choice0 != null) {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-            if (Choice1 != null) {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
-                if (Choice2 != null) {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
-                    if (Choice3 != null) {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
-                        if (Choice4 != null) {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
-                            if (Choice5 != null) {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
-                                if (Choice6 != null) {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
-                                } else {
-                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
-                                }
-                            } else {
-                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
-                            }
-                        } else {
-                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
-                        }
-                    } else {
-                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
-                    }
-                } else {
-                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
-                }
+            else {answerBtn3.setEnabled(false);
+            if (attempts < 6) {
+                System.out.println("不正解! ヒント: " + hints[attempts]);
+                JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
+                Mpanel.add(label,attempts);
             } else {
-                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+                System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
+                JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
+                Mpanel.add(label, attempts);
+                if (count >= 3) {
+                    System.out.println("全てのクイズに不正解しました!");
+                }count++;
+                hints = HINTS[quizIndex];
+                attempts = 0;
             }
-        } else {
-            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        }*/
-        Button answerBtn5 = new Button(Choice0);
-        Mpanel.add(answerBtn5);
-        answerBtn5.setEnabled(true);
-        //while (attempts < 7) {
-            answerBtn5.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
+            attempts++;
+            }
+        });
+            Button answerBtn4 = new Button(Choice4);
+            Mpanel.add(answerBtn4);
+            answerBtn4.setEnabled(true);
+            answerBtn4.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(CorrectAnswer)) {
+                    System.out.println("正解: " + EMOTIONS[quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn4.setEnabled(true);
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
+                    }
+                    hints = HINTS[quizIndex];
+                    attempts = 0;
+                }
+                else {answerBtn4.setEnabled(false);
+                if (attempts < 6) {
+                    System.out.println("不正解! ヒント: " + hints[attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
+                    Mpanel.add(label,attempts);
+                } else {
+                    System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
+                    Mpanel.add(label, attempts);
+                    if (count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                    }count++;
+                    hints = HINTS[quizIndex];
+                    attempts = 0;
+                }
+                attempts++;
+                }
+        });
+                Button answerBtn5 = new Button(Choice5);
+                Mpanel.add(answerBtn5);
+                answerBtn5.setEnabled(true);
+                answerBtn5.addActionListener((ActionEvent e) -> {
                     JButton answerbutton = (JButton) e.getSource();
                     String ButtonText = answerbutton.getText();
                     if (ButtonText.equals(CorrectAnswer)) {
@@ -1070,55 +927,764 @@ public static void End(){
                         if (usedIndexes.size() >= 3) {
                             System.out.println("全てのクイズに正解しました!");
                         }
-                        /*do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));*/
-                        usedIndexes.add(quizIndex);
                         hints = HINTS[quizIndex];
-                        /*quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);*/
                         attempts = 0;
                     }
-                    /*if (attempts == 7) {
-                        System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                    else {answerBtn5.setEnabled(false);
+                    if (attempts < 6) {
+                        System.out.println("不正解! ヒント: " + hints[attempts]);
+                        JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
+                        Mpanel.add(label,attempts);
+                    } else {
+                        System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
+                        JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
+                        Mpanel.add(label, attempts);
                         if (count >= 3) {
                             System.out.println("全てのクイズに不正解しました!");
-                        }
-                        do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        count++;
+                        }count++;
                         hints = HINTS[quizIndex];
-                        quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);
                         attempts = 0;
-                    }*/ 
-                    else {answerBtn5.setEnabled(false);
-                        if (attempts < 6) {
-                            System.out.println("不正解! ヒント: " + hints[attempts]);
-                            JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
-                            Mpanel.add(label,attempts);
-                        } else {
-                            System.out.println("不正解! 英語解:" + ENGLISH[quizIndex]);
-                            JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
-                            Mpanel.add(label, attempts);
-                            if (count >= 3) {
-                                System.out.println("全てのクイズに不正解しました!");
-                            }
-                            do {
-                                quizIndex = random.nextInt(QUIZ.length);
-                            } while (usedIndexes.contains(quizIndex));
-                            count++;
-                            hints = HINTS[quizIndex];
-                            quiz = QUIZ[quizIndex];
-                            System.out.println("次のクイズ:" + quiz);
-                            attempts = 0;
-                        }
-                        attempts++;
                     }
+                    attempts++;
+                    }
+        }); 
+                    Button answerBtn6 = new Button(Choice6);
+        Mpanel.add(answerBtn6);
+        answerBtn6.setEnabled(true);
+        answerBtn6.addActionListener((ActionEvent e) -> {
+            JButton answerbutton = (JButton) e.getSource();
+            String ButtonText = answerbutton.getText();
+            if (ButtonText.equals(CorrectAnswer)) {
+                System.out.println("正解: " + EMOTIONS[quizIndex]);
+                Mpanel.add("正解: ", answerbutton);
+                answerBtn6.setEnabled(true);
+                if (usedIndexes.size() >= 3) {
+                    System.out.println("全てのクイズに正解しました!");
                 }
-            });
-        //}
+                hints = HINTS[quizIndex];
+                attempts = 0;
+            }
+            else {answerBtn6.setEnabled(false);
+            if (attempts < 6) {
+                System.out.println("不正解! ヒント: " + hints[attempts]);
+                JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
+                Mpanel.add(label,attempts);
+            } else {
+                System.out.println("挑戦回数消失! 英語解:" + ENGLISH[quizIndex]);
+                JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
+                Mpanel.add(label, attempts);
+                if (count >= 3) {
+                    System.out.println("全てのクイズに不正解しました!");
+                }count++;
+                hints = HINTS[quizIndex];
+                attempts = 0;
+            }
+            attempts++;
+            }
+        });           
+                }*/
+    public void Answer0() {
+        Mpanel.add(this.answerBtn0);
+        /*Contains();
+        usedIndexes.add(quizIndex);
+        if (Choice0 != null) {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+            if (Choice1 != null) {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
+                if (Choice2 != null) {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
+                    if (Choice3 != null) {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
+                        if (Choice4 != null) {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
+                            if (Choice5 != null) {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
+                                if (Choice6 != null) {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
+                                } else {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
+                                }
+                            } else {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
+                            }
+                        } else {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
+                        }
+                    } else {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+                    }
+                } else {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
+                }
+            } else {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+            }
+        } else {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+        }
+        Button answerBtn0 = new Button(this.Choice0);
+        panel.add(answerBtn0,BorderLayout.SOUTH);
+        answerBtn0.setEnabled(true);
+        while (attempts < 7) {
+            answerBtn0.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(CorrectAnswer)) {
+                    Goodjuage();
+                    /*System.out.println("正解: " + EMOTIONS[this.quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn0.setEnabled(true);
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
+                    }
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                        JLabel label=new JLabel("全てのクイズに正解しました!");
+                        Mpanel.add(label);
+                        End();
+                    }
+                    this.clearcount++;
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    usedIndexes.add(quizIndex);
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                if (attempts == 7) {
+                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                answerBtn0.setEnabled(false);
+                if (count >= 3) {
+                System.out.println("全てのクイズに不正解しました!");
+                }
+                do {
+                quizIndex = random.nextInt(QUIZ.length);
+                } while (usedIndexes.contains(quizIndex));
+                count++;
+                hints = HINTS[quizIndex];
+                quiz = QUIZ[quizIndex];
+                System.out.println("次のクイズ:" + quiz);
+                attempts = 0;
+                } 
+                else {answerBtn0.setEnabled(false);
+                    Badjuage();
+                if (this.attempts < 6) {
+                    System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + hints[this.attempts]);
+                    Mpanel.add(label,this.attempts);
+                } else {
+                    System.out.println("挑戦回数消失! 英語解:" + ENGLISH[this.quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" + this.english);
+                    Mpanel.add(label, this.attempts);
+                    if (this.count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                        JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                        Mpanel.add(lAbel);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    this.count++;
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                this.attempts++;
+                }
+        });
+        }*/
+    }
+
+    public void Answer1() {
+        Mpanel.add(this.answerBtn1);
+        /*Contains();
+        usedIndexes.add(quizIndex);
+        if (Choice0 != null) {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+            if (Choice1 != null) {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
+                if (Choice2 != null) {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
+                    if (Choice3 != null) {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
+                        if (Choice4 != null) {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
+                            if (Choice5 != null) {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
+                                if (Choice6 != null) {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
+                                } else {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
+                                }
+                            } else {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
+                            }
+                        } else {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
+                        }
+                    } else {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+                    }
+                } else {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
+                }
+            } else {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+            }
+        } else {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+        }
+        Button answerBtn1 = new Button(this.Choice1);
+        panel.add(answerBtn1,BorderLayout.SOUTH);
+        answerBtn1.setEnabled(true);
+        while (attempts < 7) {
+            answerBtn1.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(CorrectAnswer)) {
+                    /*System.out.println("正解: " + EMOTIONS[this.quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn1.setEnabled(true);
+                    Goodjuage();
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
+                    }
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                        JLabel label=new JLabel("全てのクイズに正解しました!");
+                        Mpanel.add(label);
+                        End();
+                    }
+                    this.clearcount++;
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    usedIndexes.add(quizIndex);
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                if (attempts == 7) {
+                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                if (count >= 3) {
+                System.out.println("全てのクイズに不正解しました!");
+                }
+                do {
+                quizIndex = random.nextInt(QUIZ.length);
+                } while (usedIndexes.contains(quizIndex));
+                count++;
+                hints = HINTS[quizIndex];
+                quiz = QUIZ[quizIndex];
+                System.out.println("次のクイズ:" + quiz);
+                attempts = 0;
+                } 
+                else {answerBtn1.setEnabled(false);
+                if (this.attempts < 6) {
+                    System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + this.hints[this.attempts]);
+                    Mpanel.add(label,this.attempts);
+                } else {
+                    System.out.println("不正解! 英語解:" + ENGLISH[this.quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" + this.english);
+                    Mpanel.add(label, this.attempts);
+                    if (count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                    }
+                    if (this.count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                        JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                        Mpanel.add(lAbel);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    this.count++;
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                this.attempts++;
+                    Badjuage();
+                }
+        });
+        }*/
+    }
+
+    public void Answer2() {
+        Mpanel.add(this.answerBtn2);
+        /*Contains();
+        usedIndexes.add(quizIndex);
+        if (Choice0 != null) {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+            if (Choice1 != null) {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
+                if (Choice2 != null) {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
+                    if (Choice3 != null) {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
+                        if (Choice4 != null) {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
+                            if (Choice5 != null) {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
+                                if (Choice6 != null) {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
+                                } else {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
+                                }
+                            } else {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
+                            }
+                        } else {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
+                        }
+                    } else {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+                    }
+                } else {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
+                }
+            } else {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+            }
+        } else {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+        }
+        Button answerBtn2 = new Button(this.Choice2);
+        panel.add(answerBtn2,BorderLayout.SOUTH);
+        answerBtn2.setEnabled(true);
+        while (attempts < 7) {
+            answerBtn2.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    System.out.println("正解: " + EMOTIONS[this.quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn2.setEnabled(true);
+                    Goodjuage();
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
+                    }
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                        JLabel label=new JLabel("全てのクイズに正解しました!");
+                        Mpanel.add(label);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    usedIndexes.add(quizIndex);
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                if (attempts == 7) {
+                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                if (count >= 3) {
+                System.out.println("全てのクイズに不正解しました!");
+                }
+                do {
+                quizIndex = random.nextInt(QUIZ.length);
+                } while (usedIndexes.contains(quizIndex));
+                count++;
+                hints = HINTS[quizIndex];
+                quiz = QUIZ[quizIndex];
+                System.out.println("次のクイズ:" + quiz);
+                attempts = 0;
+                }
+                else {answerBtn2.setEnabled(false);
+                if (this.attempts < 6) {
+                    System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + this.hints[this.attempts]);
+                    Mpanel.add(label,this.attempts);
+                } else {
+                    System.out.println("不正解! 英語解:" + ENGLISH[this.quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" + this.english);
+                    Mpanel.add(label, this.attempts);
+                    if (count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                    }
+                    if (this.count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                        JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                        Mpanel.add(lAbel);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    this.count++;
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                this.attempts++;
+                    Badjuage();
+                }
+        });
+        }*/
+    }
+
+    public void Answer3() {
+        Mpanel.add(this.answerBtn3);
+        /*Contains();
+        usedIndexes.add(quizIndex);
+        if (Choice0 != null) {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+            if (Choice1 != null) {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
+                if (Choice2 != null) {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
+                    if (Choice3 != null) {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
+                        if (Choice4 != null) {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
+                            if (Choice5 != null) {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
+                                if (Choice6 != null) {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
+                                } else {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
+                                }
+                            } else {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
+                            }
+                        } else {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
+                        }
+                    } else {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+                    }
+                } else {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
+                }
+            } else {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+            }
+        } else {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+        }
+        Button answerBtn3 = new Button(this.Choice3);
+        panel.add(answerBtn3 ,BorderLayout.SOUTH);
+        answerBtn3.setEnabled(true);
+        while (attempts < 7) {
+            answerBtn3.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    System.out.println("正解: " + EMOTIONS[this.quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn3.setEnabled(true);
+                    Goodjuage();
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
+                    }
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                        JLabel label=new JLabel("全てのクイズに正解しました!");
+                        Mpanel.add(label);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    usedIndexes.add(quizIndex);
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                if (attempts == 7) {
+                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                if (count >= 3) {
+                System.out.println("全てのクイズに不正解しました!");
+                }
+                do {
+                quizIndex = random.nextInt(QUIZ.length);
+                } while (usedIndexes.contains(quizIndex));
+                count++;
+                hints = HINTS[quizIndex];
+                quiz = QUIZ[quizIndex];
+                System.out.println("次のクイズ:" + quiz);
+                attempts = 0;
+                } 
+                else {answerBtn3.setEnabled(false);
+                if (this.attempts < 6) {
+                    System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + this.hints[this.attempts]);
+                    Mpanel.add(label,this.attempts);
+                } else {
+                    System.out.println("不正解! 英語解:" + ENGLISH[this.quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" +this.english);
+                    Mpanel.add(label, this.attempts);
+                    if (count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                    }
+                    if (this.count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                        JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                        Mpanel.add(lAbel);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    this.count++;
+                    /*hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                this.attempts++;
+                    Badjuage();
+                }
+        });
+        }*/
+    }
+
+    public void Answer4() {
+        Mpanel.add(this.answerBtn4);
+        /*Contains();
+        usedIndexes.add(quizIndex);
+        if (Choice0 != null) {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+            if (Choice1 != null) {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
+                if (Choice2 != null) {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
+                    if (Choice3 != null) {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
+                        if (Choice4 != null) {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
+                            if (Choice5 != null) {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
+                                if (Choice6 != null) {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
+                                } else {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
+                                }
+                            } else {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
+                            }
+                        } else {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
+                        }
+                    } else {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+                    }
+                } else {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
+                }
+            } else {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+            }
+        } else {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+        }
+        Button answerBtn4 = new Button(this.Choice4);
+        panel.add(answerBtn4,BorderLayout.SOUTH);
+        answerBtn4.setEnabled(true);
+        while (attempts < 7) {
+            answerBtn4.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    System.out.println("正解: " + EMOTIONS[this.quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn4.setEnabled(true);
+                    Goodjuage();
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
+                    }+
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                        JLabel label=new JLabel("全てのクイズに正解しました!");
+                        Mpanel.add(label);
+                        End();
+                    }
+                    this.clearcount++;
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    usedIndexes.add(quizIndex);
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                if (attempts == 7) {
+                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                if (count >= 3) {
+                System.out.println("全てのクイズに不正解しました!");
+                }
+                do {
+                quizIndex = random.nextInt(QUIZ.length);
+                } while (usedIndexes.contains(quizIndex));
+                count++;
+                hints = HINTS[quizIndex];
+                quiz = QUIZ[quizIndex];
+                System.out.println("次のクイズ:" + quiz);
+                attempts = 0;
+                }
+                else {answerBtn4.setEnabled(false);
+                if (this.attempts < 6) {
+                    System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + this.hints[this.attempts]);
+                    Mpanel.add(label,this.attempts);
+                } else {
+                    System.out.println("不正解! 英語解:" + ENGLISH[this.quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" + this.english);
+                    Mpanel.add(label, this.attempts);
+                    if (count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                    }
+                    if (this.count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                        JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                        Mpanel.add(lAbel);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    this.count++;
+                    /*hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                this.attempts++;
+                    Badjuage();
+                }
+        });
+        }*/
+    }
+
+    public void Answer5() {
+    Mpanel.add(this.answerBtn5);
+        /*Contains();
+        usedIndexes.add(quizIndex);
+        if (Choice0 != null) {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+            if (Choice1 != null) {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex + 1]);
+                if (Choice2 != null) {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex + 2]);
+                    if (Choice3 != null) {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex + 3]);
+                        if (Choice4 != null) {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex + 4]);
+                            if (Choice5 != null) {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex + 5]);
+                                if (Choice6 != null) {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex + 6]);
+                                } else {
+                                    Choice6 = NUMBERS_MAP.get(Numbers[quizIndex - 6]);
+                                }
+                            } else {
+                                Choice5 = NUMBERS_MAP.get(Numbers[quizIndex - 5]);
+                            }
+                        } else {
+                            Choice4 = NUMBERS_MAP.get(Numbers[quizIndex - 4]);
+                        }
+                    } else {
+                        Choice3 = NUMBERS_MAP.get(Numbers[quizIndex - 3]);
+                    }
+                } else {
+                    Choice2 = NUMBERS_MAP.get(Numbers[quizIndex - 2]);
+                }
+            } else {
+                Choice1 = NUMBERS_MAP.get(Numbers[quizIndex - 1]);
+            }
+        } else {
+            Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
+        }
+        Button answerBtn5 = new Button(this.Choice5);
+        panel.add(answerBtn5,BorderLayout.SOUTH);
+        answerBtn5.setEnabled(true);
+        while (attempts < 7) {
+            answerBtn5.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    System.out.println("正解: " + EMOTIONS[this.quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn5.setEnabled(true);
+                    Goodjuage();
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
+                    }
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                        JLabel label=new JLabel("全てのクイズに正解しました!");
+                        Mpanel.add(label);
+                        End();
+                    }
+                    this.clearcount++;
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    usedIndexes.add(quizIndex);
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                if (attempts == 7) {
+                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                if (count >= 3) {
+                System.out.println("全てのクイズに不正解しました!");
+                }
+                do {
+                quizIndex = random.nextInt(QUIZ.length);
+                } while (usedIndexes.contains(quizIndex));
+                count++;
+                hints = HINTS[quizIndex];
+                quiz = QUIZ[quizIndex];
+                System.out.println("次のクイズ:" + quiz);
+                attempts = 0;
+                }
+                else {answerBtn5.setEnabled(false);
+                if (this.attempts < 6) {
+                    System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + this.hints[this.attempts]);
+                    Mpanel.add(label,this.attempts);
+                } else {
+                    System.out.println("不正解! 英語解:" + ENGLISH[this.quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" + this.english);
+                    Mpanel.add(label, this.attempts);
+                    if (count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                    }
+                    if (this.count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                        JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                        Mpanel.add(lAbel);
+                        End();
+                    }
+                    do {
+                        quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    this.count++;
+                    /*hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                this.attempts++;
+                    Badjuage();
+                }
+        });
+        }*/
     }
 
     public void Answer6() {
@@ -1158,72 +1724,84 @@ public static void End(){
             }
         } else {
             Choice0 = NUMBERS_MAP.get(Numbers[quizIndex]);
-        }*/
-        Button answerBtn6 = new Button(Choice0);
-        Mpanel.add(answerBtn6);
+        }
+        Button answerBtn6 = new Button(this.Choice6);
+        panel.add(answerBtn6,BorderLayout.SOUTH);
         answerBtn6.setEnabled(true);
-        //while (attempts < 7) {
-            answerBtn6.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JButton answerbutton = (JButton) e.getSource();
-                    String ButtonText = answerbutton.getText();
-                    if (ButtonText.equals(CorrectAnswer)) {
-                        System.out.println("正解: " + EMOTIONS[quizIndex]);
-                        Mpanel.add("正解: ", answerbutton);
-                        answerBtn6.setEnabled(true);
-                        if (usedIndexes.size() >= 3) {
-                            System.out.println("全てのクイズに正解しました!");
-                        }
-                        /*do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));*/
-                        usedIndexes.add(quizIndex);
-                        hints = HINTS[quizIndex];
-                        /*quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);*/
-                        attempts = 0;
+        while (attempts < 7) {
+            answerBtn6.addActionListener((ActionEvent e) -> {
+                JButton answerbutton = (JButton) e.getSource();
+                String ButtonText = answerbutton.getText();
+                if (ButtonText.equals(this.CorrectAnswer)) {
+                    System.out.println("正解: " + EMOTIONS[this.quizIndex]);
+                    Mpanel.add("正解: ", answerbutton);
+                    answerBtn6.setEnabled(true);
+                    Goodjuage();
+                    if (usedIndexes.size() >= 3) {
+                        System.out.println("全てのクイズに正解しました!");
                     }
-                    /*if (attempts == 7) {
-                        System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
-                        if (count >= 3) {
-                            System.out.println("全てのクイズに不正解しました!");
-                        }
-                        do {
-                            quizIndex = random.nextInt(QUIZ.length);
-                        } while (usedIndexes.contains(quizIndex));
-                        count++;
-                        hints = HINTS[quizIndex];
-                        quiz = QUIZ[quizIndex];
-                        System.out.println("次のクイズ:" + quiz);
-                        attempts = 0;
-                    } */
-                   else {answerBtn6.setEnabled(false);
-                        if (attempts < 6) {
-                            System.out.println("不正解! ヒント: " + hints[attempts]);
-                            JLabel label=new JLabel("不正解! ヒント: " + hints[attempts]);
-                            Mpanel.add(label,attempts);
-                        } else {
-                            System.out.println("不正解! 英語解:" + ENGLISH[quizIndex]);
-                            JLabel label = new JLabel("挑戦回数消失! 英語解:" + english);
-                            Mpanel.add(label, attempts);
-                            if (count >= 3) {
-                                System.out.println("全てのクイズに不正解しました!");
-                            }
-                            /*do {
-                                quizIndex = random.nextInt(QUIZ.length);
-                            } while (usedIndexes.contains(quizIndex));*/
-                            count++;
-                            hints = HINTS[quizIndex];
-                            /*quiz = QUIZ[quizIndex];
-                            System.out.println("次のクイズ:" + quiz);*/
-                            attempts = 0;
-                        }
-                        attempts++;
+                    if(this.clearcount>=3){
+                        System.out.println("全てのクイズに正解しました!");
+                        JLabel label=new JLabel("全てのクイズに正解しました!");
+                        Mpanel.add(label);
+                        End();
                     }
+                    this.clearcount++;
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    usedIndexes.add(quizIndex);
+                    hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
                 }
-            });
-        //}
+                if (attempts == 7) {
+                System.out.println("ゲームオーバー! 正解は: " + EMOTIONS[quizIndex]);
+                if (count >= 3) {
+                System.out.println("全てのクイズに不正解しました!");
+                }
+                do {
+                quizIndex = random.nextInt(QUIZ.length);
+                } while (usedIndexes.contains(quizIndex));
+                count++;
+                hints = HINTS[quizIndex];
+                quiz = QUIZ[quizIndex];
+                System.out.println("次のクイズ:" + quiz);
+                attempts = 0;
+                } 
+                else {answerBtn6.setEnabled(false);
+                if (this.attempts < 6) {
+                    System.out.println("不正解! ヒント: " + this.hints[this.attempts]);
+                    JLabel label=new JLabel("不正解! ヒント: " + this.hints[this.attempts]);
+                    Mpanel.add(label,this.attempts);
+                } else {
+                    System.out.println("不正解! 英語解:" + ENGLISH[this.quizIndex]);
+                    JLabel label = new JLabel("挑戦回数消失! 英語解:" + this.english);
+                    Mpanel.add(label, this.attempts);
+                    if (count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                    }
+                    if (this.count >= 3) {
+                        System.out.println("全てのクイズに不正解しました!");
+                        JLabel lAbel=new JLabel("全てのクイズに不正解しました！");
+                        Mpanel.add(lAbel);
+                        End();
+                    }
+                    do {
+                    quizIndex = random.nextInt(QUIZ.length);
+                    } while (usedIndexes.contains(quizIndex));
+                    this.count++;
+                    /*hints = HINTS[quizIndex];
+                    quiz = QUIZ[quizIndex];
+                    System.out.println("次のクイズ:" + quiz);
+                    attempts = 0;
+                }
+                this.attempts++;
+                    Badjuage();
+                }
+        });
+        }*/
     }
 }
 //1CEI1217 大西凜 最終課題
