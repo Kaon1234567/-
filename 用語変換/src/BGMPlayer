@@ -1,0 +1,34 @@
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+
+public class BGMPlayer {
+    private MediaPlayer mediaPlayer;
+
+    public BGMPlayer(String filePath) {
+        // JavaFXランタイムを初期化するためにJFXPanelをインスタンス化
+        new JFXPanel();
+        
+        try {
+            Media media = new Media(new File(filePath).toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+            // BGMとしてループ再生を設定
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void play() {
+        if (mediaPlayer != null) {
+            mediaPlayer.play();
+        }
+    }
+
+    public void stop() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+    }
+}
