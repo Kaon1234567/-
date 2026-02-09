@@ -66,7 +66,7 @@ display: flex;
     </nav>
     </header>
     <div class="main">
-    <h2 id="top3">創作の宝物庫-PROGRAMエリア</h2>
+    <h2 id="top3">創作物の宝物庫-PROGRAMエリア</h2>
     <img src="snow.png">
     <p>
         ここでは、PROGRAMを見て頂きます<br>
@@ -78,12 +78,16 @@ display: flex;
     <ul>
     <h4><li><a href="創作物の宝物庫-PROGRAMエリア.html#program1">【数当てゲーム】</a></li></h4>
     <h4><li><a href="創作物の宝物庫-PROGRAMエリア.html#program2">感情を含む用語演算変換クイズ</a></li></h4>
+    <h4><li><a href="創作物の宝物庫-PROGRAMエリア.html#program3">言葉演算</a></li></h4>
     </ul>
     <dl>
     <dt>【数当てゲーム】</dt><br>
     <dd>0~9の数を5回のチャンスで当てて頂きます</dd>
     </dl>
     <p id="program1">
+      ポイント:コンピュータが指定した数字を当てるシンプルなもののヒント無しでは難しいです。
+      ランダム、分岐、ループ、表示、標準入力等を駆使することで構成されています。CUIのみの実装となります。
+      <!--br>
       public class App{}//App.javaと名称を合わせる<br>
         public static void main(String[] args) {}//メイン設定<br>
           System.out.print()"【数当てゲーム】";//タイトル表示<br>
@@ -109,16 +113,21 @@ display: flex;
                   System.out.println();"ヒント:偶数"//条件一致時の表示<br>
                 else if(){}ans%2==1//他条件一致<br>
                   System.out.println();"ヒント:奇数"//他条件一致時の表示<br>
-          System.out.println();"ゲームを終了します"//終了表示<br>
+          System.out.println();"ゲームを終了します"//終了表示<--!br-->
     <br>
-    <a href="KAZUATEGAME.VER2.00.zip" alt="KAZUATEGAME.VER2.00">【数当てゲーム】</a>
     </p>
+    <a href="KAZUATEGAME.VER2.00.zip" alt="KAZUATEGAME.VER2.00">【数当てゲーム】</a>
+    <hr>
     <dl>
     <dt>感情を含む用語演算変換クイズ</dt>
     <dd>感情を含む用語一覧から用語を選んでクイズの回答を入力するものです<br>
         詳しい取り扱い方は取扱説明書を読んでください！</dd>
     </dl>
     <p id="program2">
+      ポイント:メソッドや配列、ループ、分岐、変数、表示等を駆使して作成されています。
+      CUIのみの実装となっているため少し窮屈です。用語は感情関連が多く配置されています。
+      演算能力が要求されます!腕の立つ方は試してみてください
+      <!--br>
       プログラムの一部を抜粋しています<br>
       public class App {}//App.javaと名称を合わせる<br>
         public static void feeling()String[] emotions{}//メソッド設定<br>
@@ -281,14 +290,27 @@ display: flex;
                                 if()(){}m.equals"○○関係"//一致条件<br>
                                     System.out.println()()"正解:"+addEmotion;//表示<br>
                                     break;//ループ脱出<br>
-          break;//ループ脱出<br>
+          break;//ループ脱出<--!br--><!-- /.main -->
     <br>
+    </p>
+    <hr>
+    <dl>
+    <dt>言葉演算</dt><br>
+    <dd>言葉を演算して対象の言葉を答えるクイズゲームです。</dd>
+    </dl>
+    <p id="program3">
+      ポイント:このゲームはチュートリアルがあるのでそこから取り組むことをお勧めします。難易度は４つ。一つの難易度につき５問。制限時間は難易度によって異なります。
+      時間内に正解できなければ身代わり人形を一つ失います。人形をすべて失ったらゲームオーバーです。心して遊びましょう。感情を含む用語演算変換クイズをアップグレードして、CUIとGUI双方が実装されています!
+      演算能力が要求されます。腕の立つ方は試してみましょう！
+    <br>
+    </p>
     <a href="感情を含む用語演算変換クイズver3.03.zip" alt="感情を含む用語演算変換クイズ">感情を含む用語演算変換クイズ</a><br>
-    ※現在バグや不具合があるため、正常に動作しません。メンテナンスが完了するまでは遊ばないで下さい。
-    <a href="感情を含む用語演算変換クイズ取扱説明書ver2.00.pptx" alt="感情を含む用語演算変換クイズ取扱説明書">感情を含む用語演算変換クイズ取扱説明書</a>
-      </p>
-    使用言語:java,CSS,HTML
+    ※正解の回答に反応しません。ご注意ください。メンテナンスが完了するまでは遊ばないで下さい。<br>
+    <a href="感情を含む用語演算変換クイズ取扱説明書ver2.00.pptx" alt="感情を含む用語演算変換クイズ取扱説明書">感情を含む用語演算変換クイズ取扱説明書</a><br>
+    <a href="" alt="言葉演算">言葉演算</a><br>
+    ※未完成の為掲載されていません。ご容赦ください。メンテンナスが完了するまでお待ちください。<br>
+    使用言語:java,CSS,HTML,C++,DxLib
     <h2><a href="創作物の宝物庫-PROGRAMエリア.html#top3" target="_top">TOPへ戻る</a></h2>
-    </div><!-- /.main -->
+    </div>
 </body>
 </html>
